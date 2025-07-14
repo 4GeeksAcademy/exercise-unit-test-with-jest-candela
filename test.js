@@ -1,5 +1,5 @@
 // Importar la función sum del archivo app.js
-const { sum } = require('./app.js');
+const { sum, fromDollarToYen, fromEuroToDollar, fromYenToPound} = require('./app.js');
 
 // Comienza tu primera prueba
 test('adds 14 + 9 to equal 23', () => {
@@ -11,7 +11,7 @@ test('adds 14 + 9 to equal 23', () => {
 });
 test("One euro should be 1.07 dollars", function() {
     // Importo la funcion desde app.js
-    const { fromEuroToDollar } = require('./app.js');
+    // const { fromEuroToDollar } = require('./app.js');
 
     // Uso la función como debe ser usada
     const dollars = fromEuroToDollar(3.5);
@@ -24,27 +24,27 @@ test("One euro should be 1.07 dollars", function() {
 })
 test("One dollar should be 0.0069 JPY", function() {
     // Importo la funcion desde app.js
-    const { fromDollartoYen } = require('./app.js');
+    //const { fromDollartoYen } = require('./app.js');
 
     // Uso la función como debe ser usada
-    const yenes = fromDollartoYen(3.5);
+    const yenes = fromDollarToYen(3.5);
 
     // Si 1 dollar son 0.0069 JPY, entonces 3.5 dollares debe ser (3.5 * 145)
     const expected = 3.5 * 0.0069;
 
     // Hago mi comparación (la prueba)
-    expect(fromDollartoYen(3.5)).toBe(0.0207); // 1 dollar son 0.0069 JPY, entonces 3.5 euros deberían ser = (3.5 * 145)
+    expect(fromDollarToYen(3.5)).toBe(expected); // 1 dollar son 0.0069 JPY, entonces 3.5 euros deberían ser = (3.5 * 145)
 })
 test("One yen should be 0.0050 pound", function() {
     // Importo la funcion desde app.js
-    const { fromYentoPound } = require('./app.js');
+    //const { fromYentoPound } = require('./app.js');
 
     // Uso la función como debe ser usada
-    const pounds = fromYentoPound(3.5);
+    const pounds = fromYenToPound(3.5);
 
     // Si 1 yen son 198.28 pounds, entonces 3.5 yenes debe ser (3.5 * 198.28)
     const expected = 3.5 * 1.07;
 
     // Hago mi comparación (la prueba)
-    expect(fromYemToPound(3.5)).toBe(693.98); // 1 yen son 198.28 pounds, entonces 3.5 yenes deberían ser = (3.5 * 198.28)
+    expect(fromYenToPound(3.5)).toBe(693.98); // 1 yen son 198.28 pounds, entonces 3.5 yenes deberían ser = (3.5 * 198.28)
 })
